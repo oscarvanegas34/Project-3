@@ -29,10 +29,10 @@ componentDidMount() {
         <p>Email: { currentUserEmail }</p>
         <p>You have reached the authorized Client/Staff area of the portal</p>
         <Row>
-          <Col sm="3">
+          <Col sm="5">
             <Search />
           </Col>          
-          <Col sm="9">
+          <Col sm="7">
             <History />
           </Col>
         </Row>        

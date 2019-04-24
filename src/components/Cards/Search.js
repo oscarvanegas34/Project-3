@@ -26,7 +26,7 @@ import { Card, CardBody,
           return (
 
            
-            <Card className="bg-info" style={{marginLeft: 15, height: 400, width: 450}}>
+            <Card className="bg-info " style={{ height: 400}}>
             <CardBody>
             <CardTitle> <h3>
        
