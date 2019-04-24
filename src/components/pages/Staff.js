@@ -27,7 +27,8 @@ componentDidMount() {
       <div>
         <h4>Welcome { currentUserName }</h4>
         <p>Email: { currentUserEmail }</p>
-        <p>You have reached the authorized Client/Staff area of the portal</p>
+        
+        {/* <p>You have reached the authorized Client/Staff area of the portal</p> */}
         <Row>
           <Col sm="5">
             <Search />
