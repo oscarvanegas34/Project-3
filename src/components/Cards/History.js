@@ -1,27 +1,27 @@
 //History.js
 
 import React from "react"
-import { Card, CardText, CardBody,
+import { Card, CardBody,
     CardTitle, Button, Table } from 'reactstrap';
   
 
 
 
-function History(){
+function History () {
 
 return (
 
-    <div className="col-7" style={{float:"right"}}>
-      <Card  style={{marginRight: 30, height: 400}}>
+    <div >
+      <Card  style={{marginRight: 0, height: 400}}>
         <CardBody className="bg-secondary">
 
         <CardTitle>
             
             <h3 className="text-white"> History 
 
-        <Button  caret color="success" style={{float: "right"}}>Forward</Button> 
+        <Button  caret color="success" style={{float: "right", marginLeft: 10}}>Forward</Button> 
 
-        <Button  classNAme="mr-2" caret color="primary" style={{float:"right", marginLeft: 400}}>Reply</Button>
+        <Button  caret color="primary" style={{float:"right"}}>Reply</Button>
         </h3>
         </CardTitle>
 
