@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react'
 
 
+
 import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
 import Staff from './components/pages/Staff';
@@ -29,6 +30,7 @@ class App extends Component {
               <SecureRoute path="/staff" exact={true} component={Staff} />
               <Route path='/login' render={() => <Login baseUrl='https://dev-240534.okta.com' />} />
               <Route path='/implicit/callback' component={ImplicitCallback} />  
+              
             </div>          
         </div>
         </Security>

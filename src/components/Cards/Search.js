@@ -2,8 +2,8 @@
 
 
 import React from "react"
-import { Card, CardText, CardBody,
-    CardTitle, Button , Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Table } from 'reactstrap';
+import { Card, CardBody,
+    CardTitle, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Table } from 'reactstrap';
   
 
     export default class Search extends React.Component {
@@ -26,7 +26,7 @@ import { Card, CardText, CardBody,
           return (
 
            
-            <Card className="bg-info" style={{marginLeft: 30, height: 400, width: 500}}>
+            <Card className="bg-info" style={{marginLeft: 15, height: 400, width: 450}}>
             <CardBody>
             <CardTitle> <h3>
        

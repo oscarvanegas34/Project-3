@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import Search from "../Cards/Search";
+import History from "../Cards/History";
+import { Row, Col } from 'reactstrap';
+
+
 
 class Staff extends Component {
   state = {
@@ -23,6 +28,15 @@ componentDidMount() {
         <h4>Welcome { currentUserName }</h4>
         <p>Email: { currentUserEmail }</p>
         <p>You have reached the authorized Client/Staff area of the portal</p>
+        <Row>
+          <Col sm="3">
+            <Search />
+          </Col>          
+          <Col sm="9">
+            <History />
+          </Col>
+        </Row>        
+        
       </div>
     )
   }
