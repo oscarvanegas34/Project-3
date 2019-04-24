@@ -2,7 +2,7 @@
 
 
 import React from "react"
-import { Card, CardBody,
+import { Card, CardBody, Button,
     CardTitle, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Table } from 'reactstrap';
   
 
@@ -31,9 +31,10 @@ import { Card, CardBody,
             <CardTitle> <h3>
        
             <Dropdown  isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-  <DropdownToggle className="bg-primary">
+  <DropdownToggle className="bg-primary mr-3">
     Filter
   </DropdownToggle>
+  <Button color="success" size="md">Create Ticket</Button>{' '} 
   <DropdownMenu
     modifiers={{
       setMaxHeight: {
@@ -90,6 +91,21 @@ import { Card, CardBody,
             <th>Summary</th>
           </tr>
         </thead>
+
+        <tbody>
+          <tr>
+            <td>12345 </td>
+            <td>Initial testing summary</td>
+          </tr>
+          <tr>  
+            <td>12346 </td>
+            <td>Second testing summary</td>
+          </tr>
+          <tr>
+            <td>12347 </td>
+            <td>Third testing summary</td>
+          </tr>
+        </tbody>
     
             </Table>
               
