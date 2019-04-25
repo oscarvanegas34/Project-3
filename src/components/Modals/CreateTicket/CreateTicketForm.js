@@ -1,8 +1,9 @@
 import React from 'react';
-import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Col, Form, Button, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 export default class CreateTicketForm extends React.Component {
+  state={}
   render() {
     return (
       <Form>
@@ -42,13 +43,13 @@ export default class CreateTicketForm extends React.Component {
 
         <FormGroup row>
           <Label for="whats the issue" className="text-info" sm={2}>Summary</Label>
-          <Col sm={5}>
+          <Col sm={10}>
             <Input type="text" name="summary" id="examplePassword" placeholder="What is the issue?" />
           </Col>
         </FormGroup>
         <FormGroup row>
           <Label for="exampleText" className="text-info" sm={2}>Description</Label>
-          <Col sm={5}>
+          <Col sm={10}>
             <Input type="textarea" placeholder="Please describe the problem in detail" name="text" id="exampleText" />
           </Col>
         </FormGroup>
@@ -62,10 +63,10 @@ export default class CreateTicketForm extends React.Component {
           </Col>
         </FormGroup>
         <FormGroup check row>
-          {/* <Col sm={{ size: 10, offset: 2 }}>
-            <Button className= "mr-2" >Submit</Button>
-            <Button color="warning">Cancel</Button>{' '}
-          </Col> */}
+          <Col sm={{ size: 10, offset: 9 }}>
+            <Button color="primary" className="mr-2" >Submit</Button>
+            {/* <Button color="warning">Cancel</Button>{' '} */}
+          </Col>
         </FormGroup>
       </Form>
     );

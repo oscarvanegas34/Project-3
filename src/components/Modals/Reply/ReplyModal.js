@@ -21,19 +21,18 @@ class ReplyModal extends React.Component {
 
   render() {
     return (
-      <div>
-        <Button color="primary" onClick={this.toggle}>{this.props.buttonLabel}</Button>
+      <>
+        <Button color="primary" style={{ float: "right"}} onClick={this.toggle}> Reply{this.props.buttonLabel}</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Reply</ModalHeader>
           <ModalBody>
             <ReplyForm />
           </ModalBody>
           <ModalFooter>
-            <Button color="info" onClick={this.toggle}>Send Reply</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+
           </ModalFooter>
         </Modal>
-      </div>
+      </>
     );
   }
 }
