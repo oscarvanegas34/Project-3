@@ -3,7 +3,23 @@ import { Col, Form, Button, FormGroup, Label, Input, FormText } from 'reactstrap
 import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 export default class CreateTicketForm extends React.Component {
-  state={}
+  state={
+    tickets:[],
+    ticketpriority: null,
+    ticketclass: null,
+    summary: '',
+    description: ''
+    } 
+    ticketpriodropdownHandler = e => {this.setState({ticketpriority:e.target.value})}
+    ticketclassdropdownHandler = e => {this.setState({ticketclass:e.target.value})}
+    summaryOnChangeHandler = e => {this.setState({summary: e.target.value})}
+  
+    descriptionOnChangeHandler = e => {this.setState({description: e.target.value})}
+  
+    submitHandler = () => {
+      fetch('/add', this.state)
+      .then(res => console.log("ticket added to DB"))
+    }
   render() {
     return (
       <Form>
@@ -16,9 +32,9 @@ export default class CreateTicketForm extends React.Component {
           <UncontrolledDropdown>
       <DropdownToggle color="danger" className= "mb-2" caret>   Ticket Priority </DropdownToggle>
       <DropdownMenu> 
-        <DropdownItem>Urgent</DropdownItem>
-        <DropdownItem>High</DropdownItem>
-        <DropdownItem>Low</DropdownItem>
+      <DropdownItem onClick={this.ticketpriodropdownHandler} value="Urgent">Urgent</DropdownItem>
+        <DropdownItem onClick={this.ticketpriodropdownHandler} value="High">High</DropdownItem>
+        <DropdownItem onClick={this.ticketpriodropdownHandler} value="Low">Low</DropdownItem>
       </DropdownMenu>
     </UncontrolledDropdown>
 
@@ -28,9 +44,9 @@ export default class CreateTicketForm extends React.Component {
         Classification
       </DropdownToggle>
       <DropdownMenu>
-        <DropdownItem>test 1</DropdownItem>
-        <DropdownItem>test 2</DropdownItem>
-        <DropdownItem>test 3</DropdownItem>
+      <DropdownItem onClick={this.ticketclassdropdownHandler} value="test 1" >test 1</DropdownItem>
+        <DropdownItem onClick={this.ticketclassdropdownHandler} value="test 2">test 2</DropdownItem>
+        <DropdownItem onClick={this.ticketclassdropdownHandler} value="test 3">test 3</DropdownItem>
       </DropdownMenu>
     </UncontrolledDropdown>
           </Col>
@@ -44,13 +60,13 @@ export default class CreateTicketForm extends React.Component {
         <FormGroup row>
           <Label for="whats the issue" className="text-info" sm={2}>Summary</Label>
           <Col sm={10}>
-            <Input type="text" name="summary" id="examplePassword" placeholder="What is the issue?" />
+          <Input onChange={this.summaryOnChangeHandler} type="text" name="summary" id="examplePassword" placeholder="What is the issue?" />
           </Col>
         </FormGroup>
         <FormGroup row>
           <Label for="exampleText" className="text-info" sm={2}>Description</Label>
           <Col sm={10}>
-            <Input type="textarea" placeholder="Please describe the problem in detail" name="text" id="exampleText" />
+          <Input onChange={this.descriptionOnChangeHandler} type="textarea" placeholder="Please describe the problem in detail" name="text" id="exampleText" />
           </Col>
         </FormGroup>
         <FormGroup row>
@@ -64,7 +80,7 @@ export default class CreateTicketForm extends React.Component {
         </FormGroup>
         <FormGroup check row>
           <Col sm={{ size: 10, offset: 9 }}>
-            <Button color="primary" className="mr-2" >Submit</Button>
+            <Button color="primary" onClick={this.submitHandler} className="mr-2" >Submit</Button>
             {/* <Button color="warning">Cancel</Button>{' '} */}
           </Col>
         </FormGroup>
