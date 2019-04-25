@@ -25,7 +25,7 @@ class App extends Component {
                   onAuthRequired={onAuthRequired}>
         <div className="App">
           <Navbar />
-            <div class="container">
+            <div className="container">
               <Route path="/" exact={true} component={Home} />
               <SecureRoute path="/staff" exact={true} component={Staff} />
               <Route path='/login' render={() => <Login baseUrl='https://dev-240534.okta.com' />} />
