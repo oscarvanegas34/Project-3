@@ -11,7 +11,7 @@ let Ticket = new Schema({
     ticket_description: {
         type: String
     },
-    todo_completed: {
+    ticket_completed: {
         type: Boolean
     }
 });

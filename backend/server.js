@@ -32,7 +32,7 @@ ticketRoutes.route('/').get(function(req, res) {
 
 ticketRoutes.route('/:id').get(function(req, res) {
     let id = req.params.id;
-    ticket.findById(id, function(err, ticket) {
+    Ticket.findById(id, function(err, ticket) {
         res.json(ticket);
     });
 });
@@ -57,8 +57,9 @@ ticketRoutes.route('/update/:id').post(function(req, res) {
 });
 
 ticketRoutes.route('/add').post(function(req, res) {
-    console.log(req.body)
-    let ticket = new Ticket(req.body);
+    console.log("******", req.body)
+    let ticket = new Ticket({ticket_priority: req.body.summary});
+    console.log(ticket);
     ticket.save()
         .then(ticket => {
             res.status(200).json({'ticket': 'ticket added successfully'});

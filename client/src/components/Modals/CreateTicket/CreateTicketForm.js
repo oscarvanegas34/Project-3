@@ -16,8 +16,17 @@ export default class CreateTicketForm extends React.Component {
   
     descriptionOnChangeHandler = e => {this.setState({description: e.target.value})}
   
-    submitHandler = () => {
-      fetch('/add', this.state)
+    submitHandler = e => {
+      e.preventDefault();
+      fetch('/tickets/add',
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify(this.state)
+    })
       .then(res => console.log("ticket added to DB"))
     }
   render() {
