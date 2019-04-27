@@ -45,7 +45,9 @@ ticketRoutes.route('/update/:id').post(function(req, res) {
             ticket.ticket_priority = req.body.ticket_priority;
             ticket.ticket_classification = req.body.ticket_classification;
             ticket.ticket_description = req.body.ticket_description;
+            ticket.ticket_summary = req.body.ticket_summary;
             ticket.ticket_completed = req.body.ticket_completed;
+            // ticket.ticket_feedback = req.body.ticket_feedback;
 
             ticket.save().then(ticket => {
                 res.json('ticket updated!');
@@ -58,7 +60,13 @@ ticketRoutes.route('/update/:id').post(function(req, res) {
 
 ticketRoutes.route('/add').post(function(req, res) {
     console.log("******", req.body)
-    let ticket = new Ticket({ticket_priority: req.body.summary});
+    let ticket = new Ticket({ticket_priority: req.body.ticket_priority,
+        ticket_classification : req.body.ticket_classification,
+        ticket_summary : req.body.ticket_summary,
+        ticket_description : req.body.ticket_description,
+        ticket_completed : req.body.ticket_completed,
+        ticket_feedback : req.body.ticket_feedback
+    });
     console.log(ticket);
     ticket.save()
         .then(ticket => {

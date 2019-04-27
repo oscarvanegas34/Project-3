@@ -10,14 +10,15 @@ class CreateTicketModal extends React.Component {
       modal: false
     };
 
-    this.toggle = this.toggle.bind(this);
+    
   }
 
-  toggle() {
+  toggle = () => {
+    console.log('togglin')
     this.setState(prevState => ({
       modal: !prevState.modal
     }));
-  }
+  } 
 
   render() {
     return (
@@ -26,7 +27,7 @@ class CreateTicketModal extends React.Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Ticket Submission</ModalHeader>
           <ModalBody>
-            <CreateTicketForm />
+            <CreateTicketForm onComplete={this.toggle} />
           </ModalBody>
           <ModalFooter>
             {/* <Button color="primary" onClick={this.toggle}>Submit</Button>{' '}

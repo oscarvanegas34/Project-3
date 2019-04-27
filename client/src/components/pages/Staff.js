@@ -13,6 +13,7 @@ class Staff extends Component {
 
 componentDidMount() {
   const idToken = JSON.parse(localStorage.getItem('okta-token-storage'));
+  // console.log(idToken);
   this.setState({
     currentUserEmail: idToken.idToken.claims.email,
     currentUserName: idToken.idToken.claims.name
