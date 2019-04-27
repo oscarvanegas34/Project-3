@@ -1,16 +1,8 @@
 import React, {Component} from "react"
-import {
-  Card, CardBody,
-  CardTitle, Button, Table
-} from 'reactstrap';
+import { Card, CardBody,  CardTitle, Button, Table} from 'reactstrap';
 import ReplyModal from "../Modals/Reply/ReplyModal";
 
-// function Hello(){
 
-// console.log("hello")
-
-
-// }
 
 
 class History extends Component {
@@ -57,7 +49,20 @@ componentDidMount() {
                   <th>Classification</th>
                 </tr>
                 </thead>
-                {this.state.history.map(el => <tr><td>{el.name}</td><td>{el.date}</td><td>{el.priority}</td><td>{el.class}</td></tr>)}
+
+                {/* <tbody>
+                {this.props.tickets.map((el, i) => (
+                  <tr onClick={() => this.props.currentTicketHandler(i)}>
+                    // <td>{el._id}</td>
+                    // <td>{el.ticket_summary}</td>
+                    <td>{el.ticket_priority}</td>
+                    // <td>{el.ticket_classification}</td>
+                    </tr>
+                ))}
+
+              </tbody> */}
+
+                
 
                 
              

@@ -8,15 +8,16 @@ class ReplyModal extends React.Component {
     super(props);
     this.state = {
       modal: false
-    };    
+    };
+
+    this.toggle = this.toggle.bind(this);
   }
 
   toggle = () => {
-    console.log('togglin')
     this.setState(prevState => ({
       modal: !prevState.modal
     }));
-  } 
+  }
 
   render() {
     return (
@@ -25,7 +26,7 @@ class ReplyModal extends React.Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Reply</ModalHeader>
           <ModalBody>
-            <ReplyForm onComplete={this.toggle}/>
+            <ReplyForm  onComplete={this.toggle}/>
           </ModalBody>
           <ModalFooter>
 
