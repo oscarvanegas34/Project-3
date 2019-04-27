@@ -46,7 +46,7 @@ export default withAuth(class Home extends Component {
 
     return (
       <div className="jumbotron">
-        <h1 className="display-4">FIXTIX Client / Staff Portal</h1>
+        <h1 className="display-4">FixTix Client / Staff Portal</h1>
         {mainContent}
       </div>
     );
