@@ -5,16 +5,17 @@ import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from
 export default class CreateTicketForm extends React.Component {
   state = {
     tickets: [],
-    ticketpriority: null,
-    ticketclass: null,
-    summary: '',
-    description: ''
+    ticket_priority: null,
+    ticket_classification: null,
+    ticket_summary: '',
+    ticket_description: '',
+    ticket_feedback: ''
   }
-  ticketpriodropdownHandler = e => { this.setState({ ticketpriority: e.target.value }) }
-  ticketclassdropdownHandler = e => { this.setState({ ticketclass: e.target.value }) }
-  summaryOnChangeHandler = e => { this.setState({ summary: e.target.value }) }
+  ticketpriodropdownHandler = e => { this.setState({ ticket_priority: e.target.value }) }
+  ticketclassdropdownHandler = e => { this.setState({ ticket_classification: e.target.value }) }
+  summaryOnChangeHandler = e => { this.setState({ ticket_summary: e.target.value }) }
 
-  descriptionOnChangeHandler = e => { this.setState({ description: e.target.value }) }
+  descriptionOnChangeHandler = e => { this.setState({ ticket_description: e.target.value }) }
 
   submitHandler = e => {
     e.preventDefault();
@@ -28,6 +29,7 @@ export default class CreateTicketForm extends React.Component {
         body: JSON.stringify(this.state)
       })
       .then(res => console.log("ticket added to DB"))
+      this.props.onComplete();
   }
   render() {
     return (
@@ -59,9 +61,9 @@ export default class CreateTicketForm extends React.Component {
                 <UncontrolledDropdown>
                   <DropdownToggle color="danger" className="mb-2" caret>   Ticket Classification </DropdownToggle>
                   <DropdownMenu>
-                    <DropdownItem onClick={this.ticketclassdropdownHandler} value="test 1" >Defect</DropdownItem>
-                    <DropdownItem onClick={this.ticketclassdropdownHandler} value="test 2">Change Request</DropdownItem>
-                    <DropdownItem onClick={this.ticketclassdropdownHandler} value="test 3">Training Request</DropdownItem>
+                    <DropdownItem onClick={this.ticketclassdropdownHandler} value="Defect" >Defect</DropdownItem>
+                    <DropdownItem onClick={this.ticketclassdropdownHandler} value="Change Request">Change Request</DropdownItem>
+                    <DropdownItem onClick={this.ticketclassdropdownHandler} value="Training Request">Training Request</DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
               </Col>
