@@ -25,7 +25,9 @@ ticketRoutes.route('/').get(function(req, res) {
         if (err) {
             console.log(err);
         } else {
-            res.json(tickets);
+          console.log(tickets);
+          res.json(tickets);
+            
         }
     });
 });
