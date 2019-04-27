@@ -54,11 +54,11 @@ export default class Search extends React.Component {
               >
                 <DropdownItem header>Status</DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem>Status 1</DropdownItem>
+                <DropdownItem>Open</DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem>Status 2</DropdownItem>
+                <DropdownItem>Completed</DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem>Status 3</DropdownItem>
+                <DropdownItem>Cancelled</DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem header>Classification</DropdownItem>
                 <DropdownItem divider />
