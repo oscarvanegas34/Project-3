@@ -24,7 +24,7 @@ export default class Search extends React.Component {
     return (
 
 
-      <Card className="bg-info " style={{ height: 400 }}>
+      <Card className="bg-info " style={{ height: 605 }}>
         <CardBody>
           <CardTitle> <h3>
 
