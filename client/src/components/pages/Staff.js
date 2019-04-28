@@ -52,7 +52,7 @@ class Staff extends Component {
             <Search tickets={this.state.tickets} currentTicketHandler={this.currentTicketHandler} />
           </Col>
           <Col sm="7">
-            <History />
+            <History currentTicket={this.state.currentTicket} />
           </Col>
         </Row>
       </div>
