@@ -9,13 +9,16 @@ export default class CreateTicketForm extends React.Component {
     ticket_classification: null,
     ticket_summary: '',
     ticket_description: '',
-    ticket_feedback: ''
+    ticket_date: '',
+    ticket_feedback: '',
+    ticket_file: ''
   }
   ticketpriodropdownHandler = e => { this.setState({ ticket_priority: e.target.value }) }
   ticketclassdropdownHandler = e => { this.setState({ ticket_classification: e.target.value }) }
   summaryOnChangeHandler = e => { this.setState({ ticket_summary: e.target.value }) }
-
   descriptionOnChangeHandler = e => { this.setState({ ticket_description: e.target.value }) }
+  dateOnChangeHandler = e => { this.setState({ ticket_date: e.target.value }) }
+  ticketFileOnChangeHandler = e => { this.setState({ ticket_file: e.target.value }) }
 
   submitHandler = e => {
     e.preventDefault();
@@ -34,6 +37,17 @@ export default class CreateTicketForm extends React.Component {
   render() {
     return (
       <Form>
+
+        <FormGroup row>
+          <Label className="text-info" sm={3}>Date</Label>
+          <Col sm={5}>
+            <FormGroup row>
+              <Col sm={12}>                
+                <Input onChange={this.dateOnChangeHandler} type="date" name="date" id="date"  />                
+              </Col>
+            </FormGroup>
+          </Col>
+        </FormGroup>
 
         <FormGroup row>
           <Label className="text-info" sm={3}>Priority</Label>
@@ -86,7 +100,7 @@ export default class CreateTicketForm extends React.Component {
         <FormGroup row>
           <Label for="exampleFile" className="text-info" sm={3}>File</Label>
           <Col sm={9}>
-            <Input type="file" name="file" id="exampleFile" />
+            <Input onChange={this.ticketFileOnChangeHandler} type="file" name="file" id="exampleFile" />
             <FormText color="muted">
               Please Verify the Information
             </FormText>

@@ -41,15 +41,15 @@ ticketRoutes.route('/:id').get(function(req, res) {
 
 ticketRoutes.route('/update/:id').post(function(req, res) {
     Ticket.findById(req.params.id, function(err, ticket) {
-        if (!ticket)
+        if (!currentTicket._id)
             res.status(404).send("data is not found");
         else
-            ticket.ticket_priority = req.body.ticket_priority;
-            ticket.ticket_classification = req.body.ticket_classification;
-            ticket.ticket_description = req.body.ticket_description;
-            ticket.ticket_summary = req.body.ticket_summary;
-            ticket.ticket_completed = req.body.ticket_completed;
-            // ticket.ticket_feedback = req.body.ticket_feedback;
+            // currentTicket.ticket_priority = req.body.ticket_priority;
+            // ticket.ticket_classification = req.body.ticket_classification;
+            // ticket.ticket_description = req.body.ticket_description;
+            // ticket.ticket_summary = req.body.ticket_summary;
+            // ticket.ticket_completed = req.body.ticket_completed;
+            currentTicket.ticket_feedback = req.body.ticket_feedback;
 
             ticket.save().then(ticket => {
                 res.json('ticket updated!');
@@ -67,7 +67,9 @@ ticketRoutes.route('/add').post(function(req, res) {
         ticket_summary : req.body.ticket_summary,
         ticket_description : req.body.ticket_description,
         ticket_completed : req.body.ticket_completed,
-        ticket_feedback : req.body.ticket_feedback
+        ticket_date : req.body.ticket_date,
+        ticket_feedback : req.body.ticket_feedback,
+        ticket_file : req.body.ticket_file
     });
     console.log(ticket);
     ticket.save()

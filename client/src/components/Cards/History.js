@@ -16,7 +16,7 @@ class History extends Component {
 
                     <h3 className="text-white"> History  
                     <a href={`mailto:?subject=Ticket # ${this.props.currentTicket._id} 
-                      %0A%0ASummary%3A%20${this.props.currentTicket.ticket_priority}
+                      %0A%0APriority%3A%20${this.props.currentTicket.ticket_priority}
                       %0A%0AClassification%3A%20${this.props.currentTicket.ticket_classification}
                       %0A%0ASummary%3A%20${this.props.currentTicket.ticket_summary} 
                       %0A%0ADescription%3A%20${this.props.currentTicket.ticket_description}
@@ -37,7 +37,7 @@ class History extends Component {
                       </thead> 
                       <tbody>
                         <tr>                          
-                          <td></td>
+                          <td>{this.props.currentTicket.ticket_date}</td>
                           <td>{this.props.currentTicket.ticket_priority}</td>
                           <td>{this.props.currentTicket.ticket_classification}</td>
                         </tr>
@@ -51,11 +51,13 @@ class History extends Component {
                       <thead>
                           <tr>
                             <th style={{textAlign: "center"}}>Description</th>
+                            <th>Files</th>
                           </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>{this.props.currentTicket.ticket_description}</td>
+                          <td>{this.props.currentTicket.ticket_file}</td>
                         </tr>
                       </tbody>
                     </Table> 
@@ -65,9 +67,17 @@ class History extends Component {
                     <Table >
                       <thead>
                           <tr>
-                            <th style={{textAlign: "center"}}>Feedback</th>                  
-                          </tr>
-                      </thead>                 
+                            <th>Date</th> 
+                            <th style={{textAlign: "center"}}>Feedback</th>                            
+                            <th>Name</th>                   
+                          </tr>                
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>{this.props.currentUserName}</td>
+                        </tr>
+                      
+                      </tbody>                 
                     </Table>
                   </Card>
 
