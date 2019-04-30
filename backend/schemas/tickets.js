@@ -17,7 +17,19 @@ let Ticket = new Schema({
     ticket_completed: {
         type: Boolean
     },
+    ticket_date: {
+        type: String
+    },
+    feedback_date: {
+        type: String
+    },
     ticket_feedback:{
+        type: String
+    },
+    currentUserName:{
+        type: String
+    },
+    ticket_file:{
         type: String
     }
 });
