@@ -19,19 +19,22 @@ let Ticket = new Schema({
     },
     ticket_date: {
         type: String
-    },
-    feedback_date: {
-        type: String
-    },
-    ticket_feedback:{
-        type: String
-    },
+    },   
     currentUserName:{
         type: String
     },
     ticket_file:{
         type: String
-    }
+    },
+    feedbackInformation: [
+        {
+            ticket_feedback: String,
+            feedback_date: String,
+            feedback_name: String,
+            feedback_file: String                
+            }       
+    ],  
+
 });
 
 module.exports = mongoose.model('Ticket', Ticket);
