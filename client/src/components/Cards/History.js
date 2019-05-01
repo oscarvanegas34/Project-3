@@ -5,6 +5,12 @@ import ReplyModal from "../Modals/Reply/ReplyModal";
 
 class History extends Component {
  
+  
+
+      componentDidMount() {
+        console.log(this.props)
+      }
+
       render(){
           return (
 
@@ -22,7 +28,7 @@ class History extends Component {
                       %0A%0ADescription%3A%20${this.props.currentTicket.ticket_description}
                       %0A%0AFeedback%3A%20${this.props.currentTicket.ticket_feedback}`}>
                       <Button onClick={this.hello} color="success" style={{ float: "right", marginLeft: 10 }}>Forward</Button></a>           
-                      <ReplyModal />
+                      <ReplyModal refresh={this.props.refresh} feedback_name={this.props.currentUserName} currentTicketId={this.props.currentTicket._id}/>
                     </h3>
                   </CardTitle>
 
@@ -73,11 +79,16 @@ class History extends Component {
                           </tr>                
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>{this.props.currentUserName}</td>
-                        </tr>
-                      
-                      </tbody>                 
+                        {this.props.currentTicket.feedbackInformation && 
+                          this.props.currentTicket.feedbackInformation.map((el, i) => (
+                            <tr key={el._id}>
+                              <td>{el.feedback_date}</td>
+                              <td>{el.ticket_feedback}</td>
+                              <td>{el.feedback_name}</td>
+
+                            </tr>
+                        ))}
+                      </tbody>                
                     </Table>
                   </Card>
 

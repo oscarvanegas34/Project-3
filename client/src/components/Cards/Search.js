@@ -42,7 +42,7 @@ export default class Search extends React.Component {
                   Filter
                 </DropdownToggle>
                 {/* <Button color="success" size="md">Create Ticket</Button>{' '}  */}
-                <CreateTicketModal />
+                <CreateTicketModal refresh={this.props.refresh}/>
                 <DropdownMenu
                   modifiers={{
                     setMaxHeight: {
@@ -100,7 +100,7 @@ export default class Search extends React.Component {
 
               <tbody>
                 {this.props.tickets.map((el, i) => (
-                  <tr onClick={() => this.props.currentTicketHandler(i)}>
+                  <tr key={el._id} onClick={() => this.props.currentTicketHandler(i)}>
                     <td>{el._id}</td>
                     <td>{el.ticket_summary}</td>
 

@@ -27,7 +27,7 @@ class CreateTicketModal extends React.Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Ticket Submission</ModalHeader>
           <ModalBody>
-            <CreateTicketForm onComplete={this.toggle} />
+            <CreateTicketForm refresh={this.props.refresh} onComplete={this.toggle} />
           </ModalBody>
           <ModalFooter>
             {/* <Button color="primary" onClick={this.toggle}>Submit</Button>{' '}

@@ -5,18 +5,25 @@ export default class ReplyForm extends React.Component {
   state = {
     ticket_feedback: "",
     feedback_date: "",
-    currentUserName: ""
+    feedback_name: this.props.feedback_name,
+    feedback_file: ""    
   }
 
-  // var idToken = JSON.parse(localStorage.getItem("okta-token-storage"));
+  componentDidMount() {
+    console.log(this.props)
+    // this.setState({feedback_name: this.props.curr})
+  }
+  
 
   feedbackHandler = e => { this.setState({ ticket_feedback: e.target.value }) }
   feedbackDateHandler = e => { this.setState({ feedback_date: e.target.value }) }
-  // currentUserNameHandler = e => { this.setState({ currentUserName: e.idToken.idToken.claims.name }) }
+  feedbackFileHandler = e => { this.setState({ feedback_file: e.target.value }) }
+  
 
   submitHandler = e => {
+    console.log(this.state)
     e.preventDefault();
-    fetch('/tickets/update/:id',
+    fetch(`/tickets/update/${this.props.currentTicketId}`,
       {
         headers: {
           'Accept': 'application/json',
@@ -29,6 +36,10 @@ export default class ReplyForm extends React.Component {
         console.log("feedback added to the ticket in the DB");
         this.props.onComplete();
       })
+      .catch(err => {console.log(err)})
+      this.props.onComplete();
+      this.props.refresh();
+
 
   }
 

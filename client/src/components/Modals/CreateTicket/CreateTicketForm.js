@@ -10,7 +10,7 @@ export default class CreateTicketForm extends React.Component {
     ticket_summary: '',
     ticket_description: '',
     ticket_date: '',
-    ticket_feedback: '',
+    // ticket_feedback: '',
     ticket_file: ''
   }
   ticketpriodropdownHandler = e => { this.setState({ ticket_priority: e.target.value }) }
@@ -33,6 +33,7 @@ export default class CreateTicketForm extends React.Component {
       })
       .then(res => console.log("ticket added to DB"))
       this.props.onComplete();
+      this.props.refresh();
   }
   render() {
     return (
