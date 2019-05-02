@@ -79,6 +79,7 @@ ticketRoutes.route('/add').post(function(req, res) {
     console.log("******", req.body)
     let ticket = new Ticket({ticket_priority: req.body.ticket_priority,
         ticket_classification : req.body.ticket_classification,
+        ticket_status : req.body.ticket_status,
         ticket_summary : req.body.ticket_summary,
         ticket_description : req.body.ticket_description,
         ticket_completed : req.body.ticket_completed,

@@ -32,7 +32,7 @@ export default class Search extends React.Component {
 
   render() {
     return (
-      <Card className="bg-info " style={{ height: 605 }}>
+      <Card className="bg-info " style={{ height: 605, overflow: "Auto" }}>
         <CardBody>
           <CardTitle>
             {" "}
@@ -71,19 +71,19 @@ export default class Search extends React.Component {
                   <DropdownItem divider />
                   <DropdownItem header>Classification</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Classification 1</DropdownItem>
+                  <DropdownItem>Defect</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Classification 2</DropdownItem>
+                  <DropdownItem>Change Request</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Classification 3</DropdownItem>
+                  <DropdownItem>Training Request</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem header>Urgency</DropdownItem>
+                  <DropdownItem header>Priority</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Urgency 1</DropdownItem>
+                  <DropdownItem>Urgent</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Urgency 2</DropdownItem>
+                  <DropdownItem>High</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Urgency 3</DropdownItem>
+                  <DropdownItem>Low</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
             </h3>

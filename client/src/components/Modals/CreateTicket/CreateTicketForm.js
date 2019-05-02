@@ -10,7 +10,7 @@ export default class CreateTicketForm extends React.Component {
     ticket_summary: '',
     ticket_description: '',
     ticket_date: '',
-    // ticket_feedback: '',
+    ticket_status: null,
     ticket_file: ''
   }
   ticketpriodropdownHandler = e => { this.setState({ ticket_priority: e.target.value }) }
@@ -19,6 +19,7 @@ export default class CreateTicketForm extends React.Component {
   descriptionOnChangeHandler = e => { this.setState({ ticket_description: e.target.value }) }
   dateOnChangeHandler = e => { this.setState({ ticket_date: e.target.value }) }
   ticketFileOnChangeHandler = e => { this.setState({ ticket_file: e.target.value }) }
+  ticketStatusdropdownHandler = e => { this.setState({ ticket_status: e.target.value }) }
 
   submitHandler = e => {
     e.preventDefault();
@@ -79,6 +80,24 @@ export default class CreateTicketForm extends React.Component {
                     <DropdownItem onClick={this.ticketclassdropdownHandler} value="Defect" >Defect</DropdownItem>
                     <DropdownItem onClick={this.ticketclassdropdownHandler} value="Change Request">Change Request</DropdownItem>
                     <DropdownItem onClick={this.ticketclassdropdownHandler} value="Training Request">Training Request</DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+              </Col>
+            </FormGroup>
+          </Col>
+        </FormGroup>
+
+        <FormGroup row>
+          <Label className="text-info" sm={3}>Status</Label>
+          <Col sm={5}>
+            <FormGroup row>
+              <Col sm={6}>
+                <UncontrolledDropdown>
+                  <DropdownToggle color="danger" className="mb-2" caret>   Ticket Status </DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem onClick={this.ticketStatusdropdownHandler} value="Open" >Open</DropdownItem>
+                    <DropdownItem onClick={this.ticketStatusdropdownHandler} value="Completed">Completed</DropdownItem>
+                    <DropdownItem onClick={this.ticketStatusdropdownHandler} value="Cancelled">Cancelled</DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
               </Col>

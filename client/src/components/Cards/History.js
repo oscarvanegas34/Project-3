@@ -39,6 +39,7 @@ class History extends Component {
                           <th>Date</th>
                           <th>Priority</th>
                           <th>Classification</th>
+                          <th>Status</th>
                         </tr>
                       </thead> 
                       <tbody>
@@ -46,6 +47,7 @@ class History extends Component {
                           <td>{this.props.currentTicket.ticket_date}</td>
                           <td>{this.props.currentTicket.ticket_priority}</td>
                           <td>{this.props.currentTicket.ticket_classification}</td>
+                          <td>{this.props.currentTicket.ticket_status}</td>
                         </tr>
                         
                       </tbody>           
