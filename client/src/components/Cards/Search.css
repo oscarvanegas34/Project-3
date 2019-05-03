@@ -1,0 +1,13 @@
+.cards:hover {
+    cursor: pointer;
+    color: darkmagenta;
+    text-decoration: underline;
+    background-color: rgba(71, 230, 230, 0.719);
+    font-weight: bold;
+ 
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+ 
+ 
+ }

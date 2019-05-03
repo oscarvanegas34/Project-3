@@ -1,5 +1,6 @@
 //Search.js
 import React from "react";
+import "./Search.css";
 import {
   Card,
   CardBody,
@@ -21,6 +22,7 @@ export default class Search extends React.Component {
       dropdownOpen: false
     };
   }
+ 
 
   componentDidMount;
 
@@ -61,29 +63,33 @@ export default class Search extends React.Component {
                     }
                   }}
                 >
+                  
+                  
+                  <DropdownItem onClick={this.props.filterHandler} value="Display All" >Display All</DropdownItem>
+                  <DropdownItem divider />
                   <DropdownItem header>Status</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Open</DropdownItem>
+                  <DropdownItem onClick={this.props.filterHandler} value="Open" >Open</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Completed</DropdownItem>
+                  <DropdownItem onClick={this.props.filterHandler} value="Completed">Completed</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Cancelled</DropdownItem>
+                  <DropdownItem onClick={this.props.filterHandler} value="Cancelled">Cancelled</DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem header>Classification</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Defect</DropdownItem>
+                  <DropdownItem onClick={this.props.filterHandler} value="Defect">Defect</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Change Request</DropdownItem>
+                  <DropdownItem onClick={this.props.filterHandler} value="Change Request">Change Request</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Training Request</DropdownItem>
+                  <DropdownItem onClick={this.props.filterHandler} value="Training Request">Training Request</DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem header>Priority</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Urgent</DropdownItem>
+                  <DropdownItem onClick={this.props.filterHandler} value="Urgent">Urgent</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>High</DropdownItem>
+                  <DropdownItem onClick={this.props.filterHandler} value="High">High</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Low</DropdownItem>
+                  <DropdownItem onClick={this.props.filterHandler} value="Low">Low</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
             </h3>
@@ -100,7 +106,7 @@ export default class Search extends React.Component {
 
               <tbody>
                 {this.props.tickets.map((el, i) => (
-                  <tr key={el._id} onClick={() => this.props.currentTicketHandler(i)}>
+                  <tr className="cards" key={el._id} onClick={() => this.props.currentTicketHandler(i)}>
                     <td>{el._id}</td>
                     <td>{el.ticket_summary}</td>
 

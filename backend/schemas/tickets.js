@@ -9,7 +9,7 @@ let Ticket = new Schema({
         type: String
     },    
     ticket_status: {
-        type: String
+        type: String,        
     },
     ticket_summary:{
         type: String
