@@ -53,26 +53,7 @@ ticketRoutes.route('/update/:id').put(function(req, res) {
         }
     }})
         .catch(err => console.log(err))
-
-
-    // Ticket.findById(req.params.id, function(err, ticket) {
-    //     if (!currentTicket._id)
-    //         res.status(404).send("data is not found");
-    //     else
-    //         // currentTicket.ticket_priority = req.body.ticket_priority;
-    //         // ticket.ticket_classification = req.body.ticket_classification;
-    //         // ticket.ticket_description = req.body.ticket_description;
-    //         // ticket.ticket_summary = req.body.ticket_summary;
-    //         // ticket.ticket_completed = req.body.ticket_completed;
-    //         currentTicket.ticket_feedback = req.body.ticket_feedback;
-
-    //         ticket.save().then(ticket => {
-    //             res.json('ticket updated!');
-    //         })
-    //         .catch(err => {
-    //             res.status(400).send("Update not possible");
-    //         });
-    // });
+   
 });
 
 ticketRoutes.route('/add').post(function(req, res) {

@@ -18,19 +18,20 @@ class History extends Component {
               <Card style={{ marginRight: 0, height: 605, marginBottom: 300 , overflow: "Auto"}}>
                 <CardBody className="bg-secondary">
 
-                  <CardTitle>
+                <CardTitle>
 
-                    <h3 className="text-white"> History  
-                    <a href={`mailto:?subject=Ticket # ${this.props.currentTicket._id} 
-                      %0A%0APriority%3A%20${this.props.currentTicket.ticket_priority}
-                      %0A%0AClassification%3A%20${this.props.currentTicket.ticket_classification}
-                      %0A%0ASummary%3A%20${this.props.currentTicket.ticket_summary} 
-                      %0A%0ADescription%3A%20${this.props.currentTicket.ticket_description}
-                      %0A%0AFeedback%3A%20${this.props.currentTicket.ticket_feedback}`}>
-                      <Button onClick={this.hello} color="success" style={{ float: "right", marginLeft: 10 }}>Forward</Button></a>           
-                      <ReplyModal refresh={this.props.refresh} feedback_name={this.props.currentUserName} currentTicketId={this.props.currentTicket._id}/>
-                    </h3>
-                  </CardTitle>
+                  <h3 className="text-white"> History  
+                  <a href={`mailto:?subject=Ticket # ${this.props.currentTicket._id} 
+                    %0A%0APriority%3A%20${this.props.currentTicket.ticket_priority}
+                    %0A%0AClassification%3A%20${this.props.currentTicket.ticket_classification}
+                    %0A%0ASummary%3A%20${this.props.currentTicket.ticket_summary} 
+                    %0A%0ADescription%3A%20${this.props.currentTicket.ticket_description}
+                    %0A%0AFeedback%3A%20${this.props.currentTicket.feedbackInformation && 
+                      this.props.currentTicket.feedbackInformation.map((el,i) => "%0A%0A%0A%0A%20"+el.ticket_feedback+"%0A%0A%20Date%3A%20"+el.feedback_date+"%0A%0A%20Submitted by%3A%20"+el.feedback_name)  }`}>
+                    <Button onClick={this.hello} color="success" style={{ float: "right", marginLeft: 10 }}>Forward</Button></a>           
+                    <ReplyModal refresh={this.props.refresh} feedback_name={this.props.currentUserName} currentTicketId={this.props.currentTicket._id}/>
+                  </h3>
+                </CardTitle>
 
                   <Card style={{ padding: 15, height: 110 }}>
                     <Table>
