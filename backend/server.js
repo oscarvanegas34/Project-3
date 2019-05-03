@@ -45,14 +45,17 @@ ticketRoutes.route('/update/:id').put(function(req, res) {
     console.log(req.body)
 
     Ticket.findOneAndUpdate({ _id: req.params.id }, {
-        $push: { feedbackInformation: {
-            feedback_date : req.body.feedback_date,
-            ticket_feedback : req.body.ticket_feedback,
-            feedback_name : req.body.feedback_name,
-            feedback_file : req.body.feedback_file
+        $set: {
+            ticket_status: req.body.ticket_status
+        },        
+        $push: {
+            feedbackInformation: {
+                feedback_date : req.body.feedback_date,
+                ticket_feedback : req.body.ticket_feedback,
+                feedback_name : req.body.feedback_name,
+                feedback_file : req.body.feedback_file
         }
-    }})
-        .catch(err => console.log(err))
+    }}).catch(err => console.log(err))
    
 });
 
@@ -60,7 +63,7 @@ ticketRoutes.route('/add').post(function(req, res) {
     console.log("******", req.body)
     let ticket = new Ticket({ticket_priority: req.body.ticket_priority,
         ticket_classification : req.body.ticket_classification,
-        ticket_status : req.body.ticket_status,
+        ticket_status : "Open",
         ticket_summary : req.body.ticket_summary,
         ticket_description : req.body.ticket_description,
         ticket_completed : req.body.ticket_completed,

@@ -1,12 +1,13 @@
 import React from 'react';
-import { Form, FormGroup, Col, Button, Label, Input } from 'reactstrap';
+import { Form, FormGroup, Col, Button, Label, DropdownToggle, UncontrolledDropdown, DropdownMenu, DropdownItem, Input } from 'reactstrap';
 
 export default class ReplyForm extends React.Component {
   state = {
     ticket_feedback: "",
     feedback_date: "",
     feedback_name: this.props.feedback_name,
-    feedback_file: ""    
+    feedback_file: "",
+    ticket_status: null    
   }
 
   componentDidMount() {
@@ -18,6 +19,7 @@ export default class ReplyForm extends React.Component {
   feedbackHandler = e => { this.setState({ ticket_feedback: e.target.value }) }
   feedbackDateHandler = e => { this.setState({ feedback_date: e.target.value }) }
   feedbackFileHandler = e => { this.setState({ feedback_file: e.target.value }) }
+  ticketStatusdropdownHandler = e => { this.setState({ ticket_status: e.target.value }) }
   
 
   submitHandler = e => {
@@ -64,6 +66,25 @@ export default class ReplyForm extends React.Component {
             <FormGroup row>
               <Col sm={12}>
                 <Input onChange={this.feedbackHandler} type="textarea" name="feedback" id="feedback" />
+              </Col>
+            </FormGroup>
+          </Col>
+        </FormGroup>
+
+        <FormGroup row>
+          <Label className="text-info" sm={3}>Status</Label>
+          <Col sm={5}>
+            <FormGroup row>
+              <Col sm={6}>
+                <UncontrolledDropdown>
+                  <DropdownToggle color="danger" className="mb-2" caret>   Ticket Status </DropdownToggle>
+                  <DropdownMenu>  
+                    
+                    <DropdownItem onClick={this.ticketStatusdropdownHandler} value="Open">Re-Open</DropdownItem>                  
+                    <DropdownItem onClick={this.ticketStatusdropdownHandler} value="Completed">Completed</DropdownItem>
+                    <DropdownItem onClick={this.ticketStatusdropdownHandler} value="Cancelled">Cancelled</DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
               </Col>
             </FormGroup>
           </Col>

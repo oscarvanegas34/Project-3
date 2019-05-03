@@ -10,7 +10,7 @@ export default class CreateTicketForm extends React.Component {
     ticket_summary: '',
     ticket_description: '',
     ticket_date: '',
-    ticket_status: null,
+    // ticket_status: null,
     ticket_file: ''
   }
   ticketpriodropdownHandler = e => { this.setState({ ticket_priority: e.target.value }) }
@@ -19,7 +19,7 @@ export default class CreateTicketForm extends React.Component {
   descriptionOnChangeHandler = e => { this.setState({ ticket_description: e.target.value }) }
   dateOnChangeHandler = e => { this.setState({ ticket_date: e.target.value }) }
   ticketFileOnChangeHandler = e => { this.setState({ ticket_file: e.target.value }) }
-  ticketStatusdropdownHandler = e => { this.setState({ ticket_status: e.target.value }) }
+  // ticketStatusdropdownHandler = e => { this.setState({ ticket_status: e.target.value }) }
 
   submitHandler = e => {
     e.preventDefault();
@@ -87,7 +87,7 @@ export default class CreateTicketForm extends React.Component {
           </Col>
         </FormGroup>
 
-        <FormGroup row>
+        {/* <FormGroup row>
           <Label className="text-info" sm={3}>Status</Label>
           <Col sm={5}>
             <FormGroup row>
@@ -103,7 +103,7 @@ export default class CreateTicketForm extends React.Component {
               </Col>
             </FormGroup>
           </Col>
-        </FormGroup>
+        </FormGroup> */}
 
         <FormGroup row>
           <Label for="whats the issue" className="text-info" sm={3}>Summary</Label>
