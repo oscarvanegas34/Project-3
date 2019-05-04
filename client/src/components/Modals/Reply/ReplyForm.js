@@ -7,7 +7,7 @@ export default class ReplyForm extends React.Component {
     feedback_date: "",
     feedback_name: this.props.feedback_name,
     feedback_file: "",
-    ticket_status: null    
+    ticket_status: "Open"    
   }
 
   componentDidMount() {
