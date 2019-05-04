@@ -107,7 +107,7 @@ export default class Search extends React.Component {
               <tbody>
                 {this.props.tickets.map((el, i) => (
                   <tr className="cards" key={el._id} onClick={() => this.props.currentTicketHandler(i)}>
-                    <td>{el._id}</td>
+                    <td>{el._id.slice(-6)}</td>
                     <td>{el.ticket_summary}</td>
 
                   </tr>
